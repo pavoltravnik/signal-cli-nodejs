@@ -2,7 +2,7 @@ let dbus = require("dbus-next");
 
 dbus.setBigIntCompat(true);
 
-const recipient = "<RECIPIENT>" // fill the phone number here
+const recipient = `${process.env.RECIPIENT}`;
 
 async function signalBot() {
   let bus = dbus.systemBus();

@@ -25,11 +25,13 @@ Check the developer tools (F12) console for a failed redirect to signalcaptcha:/
 Everything after signalcaptcha:// is the captcha token.
 
 ```bash
-signal-cli -u USERNAME register  --captcha CAPTCHA
-signal-cli -u USERNAME verify CODE
+export USERNAME="+...."
+export RECIPIENT="+....."
+signal-cli -u "${USERNAME}" register  --captcha 03AGdBq25QrOwUl6vqrLCz6NMl5h10DPiGhKJjn9JBBDUMIslOZOOjxp_5skIYRALzMjy5zXKziU_W2P8L9MYUX7NFbB-dMVqKrWKaqnieJWCuaQkSLO3G-niOBywhCNrwXqnAHjE1VemqK2zyO0MqtSWoaPZfqjvZ1LEnSNN639D2zIzks5lxkHvGbJxZkPqrtOhhi2MKXcn0iSrgZqn0mfke4twWph8ur80Q2rk-ea7FZtHKjEZDeZflAyGo7Tr4jSvf0IHAe7osKMhPnmWTa_fd2fFnYWgqqNQctCn18fR2Y_d-__j4MSc79-Se3BxwbkF-r2Qf-dKdVEufyhlhz4zJA7FSizxWCXONMjLBuZGedXoJNbBVWofXRN_3XMBFgBk6gNeJYqGEElXGwDLi67efefS0MCva1JiSvcqMTy38XVcU2CTFluIaIgnvFG_-sSbyOJzwcF--JGTdfvJkVIRFdY7OcuFgSA
+signal-cli -u "${USERNAME}" verify CODE
 
 # Test connection
-signal-cli -u USERNAME send -m "Message" RECIPIENT
+signal-cli -u "${USERNAME}" send -m "Message" "${RECIPIENT}"
 ```
 
 ### Run as root to activate Dbus
@@ -40,18 +42,19 @@ cd signal-cli
 cp data/org.asamk.Signal.conf /etc/dbus-1/system.d/
 cp data/org.asamk.Signal.service /usr/share/dbus-1/system-services/
 cp data/signal-cli.service /etc/systemd/system/
-sed -i -e "s|%dir%|/usr/local|" -e "s|--config /var/lib/signal-cli|-u <RECIPIENT>|" /etc/systemd/system/signal-cli.service
+sed -i -e "s|%dir%|/usr/local|" -e "s|--config /var/lib/signal-cli|-u ${USERNAME}|" /etc/systemd/system/signal-cli.service
 systemctl daemon-reload
 systemctl enable signal-cli.service
 systemctl reload dbus.service
 
 # Test connection
-signal-cli --dbus-system send -m "Message" RECIPIENT
+signal-cli --dbus-system send -m "Message" "${RECIPIENT}"
 ```
 
 ### Run simple reply to message
 
 ```bash
+cd
 git clone https://github.com/pavoltravnik/bot.git
 cd bot
 npm install
