@@ -1,0 +1,13 @@
+{
+  "name": "bot",
+  "version": "1.0.0",
+  "description": "signal bot",
+  "main": "index.js",
+  "repository": "git@github.com:pavoltravnik/bot.git",
+  "author": "Pavol Travnik <pavol.travnik@citrix.com>",
+  "license": "none",
+  "private": true,
+  "dependencies": {
+    "dbus-next": "^0.9.1"
+  }
+}
