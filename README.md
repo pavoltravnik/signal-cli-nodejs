@@ -12,6 +12,8 @@ apt install -y build-essential openjdk-11-jre wget curl git
 curl -fsSL https://deb.nodesource.com/setup_15.x | bash -
 apt-get install -y nodejs
 
+npm install -g pm2
+
 export VERSION="0.8.0"
 wget https://github.com/AsamK/signal-cli/releases/download/v"${VERSION}"/signal-cli-"${VERSION}".tar.gz
 tar xf signal-cli-"${VERSION}".tar.gz -C /opt
@@ -55,8 +57,8 @@ signal-cli --dbus-system send -m "Message" "${RECIPIENT}"
 
 ```bash
 cd
-git clone https://github.com/pavoltravnik/bot.git
-cd bot
+git clone https://github.com/pavoltravnik/signal-cli-nodejs.git
+cd signal-cli-nodejs
 npm install
-node dbus.js
+pm2 start dbus.js
 ```
