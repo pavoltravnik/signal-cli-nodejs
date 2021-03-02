@@ -52,7 +52,8 @@ signal-cli --dbus-system send -m "Message" RECIPIENT
 ### Run simple reply to message
 
 ```bash
-git clone
+git clone https://github.com/pavoltravnik/bot.git
+cd bot
 npm install
 node dbus.js
 ```
