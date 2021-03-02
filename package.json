@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": "git@github.com:pavoltravnik/bot.git",
   "author": "Pavol Travnik <pavol.travnik@citrix.com>",
-  "license": "none",
+  "license": "MIT",
   "private": true,
   "dependencies": {
     "dbus-next": "^0.9.1"
