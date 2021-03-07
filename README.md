@@ -14,7 +14,7 @@ apt-get install -y nodejs
 
 npm install -g pm2
 
-export VERSION="0.8.0"
+export VERSION="0.8.1"
 wget https://github.com/AsamK/signal-cli/releases/download/v"${VERSION}"/signal-cli-"${VERSION}".tar.gz
 tar xf signal-cli-"${VERSION}".tar.gz -C /opt
 ln -sf /opt/signal-cli-"${VERSION}"/bin/signal-cli /usr/local/bin/
